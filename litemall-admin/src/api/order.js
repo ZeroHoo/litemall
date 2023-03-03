@@ -6,8 +6,10 @@ export function listOrder(query) {
     url: '/order/list',
     method: 'get',
     params: query,
-    paramsSerializer: function(params) {
-      return Qs.stringify(params, { arrayFormat: 'repeat' })
+    paramsSerializer: {
+      serialize: function(params) {
+        return Qs.stringify(params, { arrayFormat: 'repeat' })
+      }
     }
   })
 }
